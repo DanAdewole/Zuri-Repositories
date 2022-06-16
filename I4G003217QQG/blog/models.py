@@ -8,3 +8,6 @@ class Post(models.Model):
 	author = get_user_model()
 	created_date = models.DateTimeField()
 	published_date = models.DateTimeField()
+
+	def __str__(self):
+		return self.name
