@@ -10,4 +10,4 @@ class Post(models.Model):
 	published_date = models.DateTimeField()
 
 	def __str__(self):
-		return self.name
+		return self.title
