@@ -1,0 +1,15 @@
+# add files to be ignored inside here
+
+# python files
+__pycache__/
+
+# editor files
+.idea
+
+# environment variable
+zurienv
+.env
+
+# database
+db.sqlite3
+
