@@ -1,5 +1,8 @@
+import datetime
+
 from unittest.util import _MAX_LENGTH
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -11,6 +14,9 @@ class Question(models.Model):
 
 	def __str__(self):
 		return self.question_text
+
+	def was_published_recently(self):
+		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 # ------------------ QUESTION MODEL EXAMPLE ----------------------- #
 	# 1)  'Are you happy about django'                     "June 16, 09:58 WAT"
 	# 2)  'Are you...'  								   "June 15, 12:00 WAT"
