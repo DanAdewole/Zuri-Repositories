@@ -16,7 +16,10 @@ class Question(models.Model):
 		return self.question_text
 
 	def was_published_recently(self):
-		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+		now = timezone.now()
+		# return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+		return now - datetime.timedelta(days=1) <= self.pub_date <= now
+
 # ------------------ QUESTION MODEL EXAMPLE ----------------------- #
 	# 1)  'Are you happy about django'                     "June 16, 09:58 WAT"
 	# 2)  'Are you...'  								   "June 15, 12:00 WAT"
