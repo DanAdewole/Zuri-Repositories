@@ -97,3 +97,14 @@ class QuestionIndexViewTest(TestCase):
 			[question2, question1],
 		)
 
+
+class QuestionDetailViewTests(TestCase):
+
+	def test_future_question(self):
+		"""
+		The detail view of a question with a pub_date in the future returns a 404 not found
+		"""
+		past_question = create_question(question_text='Past Question.', days=-5)
+		url = reverse('polls:detail', args=(past_question.id,))
+		response = self.client.get(url)
+		self.assertContains(response, past_question.question_text)
