@@ -23,12 +23,10 @@ class PostDetailApi(generics.RetrieveAPIView):
 
 
 class PostUpdateApi(generics.UpdateAPIView):
-	queryset = Link.object.filter(active=True)
+	queryset = Link.objects.filter(active=True)
 	serializer_class = LinkSerializer
 
 
 class PostDeleteApi(generics.DestroyAPIView):
 	queryset = Link.objects.filter(active=True)
 	serializer_class = LinkSerializer
-
-	
