@@ -11,3 +11,6 @@ class Link(models.Model):
 	author = get_user_model()
 	created_date = models.DateTimeField()
 	active = models.BooleanField(default=True)
+
+	def __str__(self):
+		return self.target_url
